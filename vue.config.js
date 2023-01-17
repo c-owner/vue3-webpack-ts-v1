@@ -1,4 +1,20 @@
-const { defineConfig } = require('@vue/cli-service')
+const {defineConfig} = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true
+    transpileDependencies: true,
+
+    outputDir: 'dist',
+    /* webpack config 옵션 추가 */
+    configureWebpack: {
+        plugins: [
+        ]
+    },
+
+    /* 옵션 체이닝 */
+    configureWebpack: config => {
+        if (process.env.NODE_ENV === 'production') {
+            // mutate config for production...
+        } else {
+            // mutate for development...
+        }
+    }
 })
